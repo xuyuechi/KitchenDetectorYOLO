@@ -9,7 +9,7 @@ import java.sql.SQLException;
  * 增删改查公共类
  */
 public class BaseDao {
-    public static ResultSet execute(Connection connection,String sql,Object[] params,ResultSet resultSet,PreparedStatement preparedStatement) throws SQLException {
+    public static ResultSet query(Connection connection,String sql,Object[] params,ResultSet resultSet,PreparedStatement preparedStatement) throws SQLException {
         preparedStatement = connection.prepareStatement(sql);
         for(int i=1;i<params.length;i++) {
             preparedStatement.setObject(i+1,params[i]);
@@ -18,7 +18,7 @@ public class BaseDao {
         return resultSet;
     }
 
-    public static int execute(Connection connection,String sql,Object[] params,PreparedStatement preparedStatement) throws SQLException {
+    public static int update(Connection connection,String sql,Object[] params,PreparedStatement preparedStatement) throws SQLException {
         preparedStatement = connection.prepareStatement(sql);
         for(int i=1;i<params.length;i++) {
             preparedStatement.setObject(i+1,params[i]);

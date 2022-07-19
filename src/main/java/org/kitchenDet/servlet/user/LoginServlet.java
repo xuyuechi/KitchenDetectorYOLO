@@ -1,9 +1,9 @@
-package smbms.servlet.user;
+package org.kitchenDet.servlet.user;
 
-import com.smbms.pojo.User;
-import com.smbms.service.user.UserService;
-import com.smbms.service.user.UserServiceImpl;
-import com.smbms.util.Constants;
+import org.kitchenDet.pojo.User;
+import org.kitchenDet.service.user.UserService;
+import org.kitchenDet.service.user.UserServiceImpl;
+import org.kitchenDet.util.Constants;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -18,15 +18,15 @@ public class LoginServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         UserService us = new UserServiceImpl();
-        String userCode = req.getParameter("userCode");
-        String userPassword = req.getParameter("userPassword");
+        String userCode = req.getParameter("username");
+        String userPassword = req.getParameter("password");
         User loginUser = us.login(userCode,userPassword);
         if(loginUser!=null){
             req.getSession().setAttribute(Constants.USER_SESSION,loginUser);
-            resp.sendRedirect("jsp/frame.jsp");
+            resp.sendRedirect("sys/frame.html");
         }else{
             req.setAttribute("error","用户名或密码不正确");
-            req.getRequestDispatcher("login.jsp").forward(req,resp);
+            req.getRequestDispatcher("login.html").forward(req,resp);
         }
     }
 

@@ -1,7 +1,6 @@
-package smbms.filter;
+package org.kitchenDet.filter;
 
-import com.smbms.util.Constants;
-
+import org.kitchenDet.util.Constants;
 import javax.servlet.*;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;

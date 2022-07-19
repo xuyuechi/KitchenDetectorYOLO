@@ -1,4 +1,4 @@
-package smbms.dao;
+package org.kitchenDet.dao;
 
 import com.alibaba.druid.pool.DruidDataSource;
 import com.alibaba.druid.pool.DruidDataSourceFactory;

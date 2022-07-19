@@ -1,6 +1,7 @@
-package smbms.servlet.user;
+package org.kitchenDet.servlet.user;
 
-import com.smbms.util.Constants;
+
+import org.kitchenDet.util.Constants;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -12,7 +13,7 @@ public class LogoutServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.getSession().removeAttribute(Constants.USER_SESSION);
-        resp.sendRedirect(req.getContextPath()+"/login.jsp");
+        resp.sendRedirect(req.getContextPath()+"/login.html");
     }
 
     @Override

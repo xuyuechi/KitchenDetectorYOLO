@@ -1,10 +1,9 @@
-package smbms.service.user;
+package org.kitchenDet.service.user;
 
-import com.smbms.dao.BaseDao;
-import com.smbms.dao.user.UserDao;
-import com.smbms.dao.user.UserDaoImpl;
-import com.smbms.pojo.User;
-
+import org.kitchenDet.dao.BaseDao;
+import org.kitchenDet.dao.user.UserDao;
+import org.kitchenDet.dao.user.UserDaoImpl;
+import org.kitchenDet.pojo.User;
 import java.sql.Connection;
 import java.sql.SQLException;
 
@@ -31,13 +30,13 @@ public class UserServiceImpl implements UserService{
         }finally {
             BaseDao.close(connection,null,null);
         }
-        if(user!=null && !user.getUserPassword().equals(password))
+        if(user!=null && !user.getPassword().equals(password))
             user=null;
         return user;
     }
 
     @Override
-    public boolean modifyPwd(int id, String newPwd) {
+    public boolean modifyPwd(String id, String newPwd) {
         int res = 0;
         try {
             Connection conn = BaseDao.getConnection();

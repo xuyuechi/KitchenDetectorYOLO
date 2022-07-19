@@ -1,4 +1,4 @@
-package smbms.filter;
+package org.kitchenDet.filter;
 
 import javax.servlet.*;
 import java.io.IOException;

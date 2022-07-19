@@ -1,4 +1,4 @@
-package smbms.dao;
+package org.kitchenDet.dao;
 
 import com.mysql.cj.jdbc.AbandonedConnectionCleanupThread;
 

@@ -1,5 +1,6 @@
 package org.kitchenDet.service.user;
 
+import org.junit.Test;
 import org.kitchenDet.dao.BaseDao;
 import org.kitchenDet.dao.user.UserDao;
 import org.kitchenDet.dao.user.UserDaoImpl;
@@ -48,5 +49,11 @@ public class UserServiceImpl implements UserService{
             return true;
         else
             return false;
+    }
+
+    @Test
+    public void test(){
+        User user = login("10001","123456");
+        System.out.println(user.getUsername());
     }
 }

@@ -35,7 +35,7 @@
     
     <servlet-mapping>
         <servlet-name>LoginServlet</servlet-name>
-        <url-pattern>/dologin</url-pattern>
+        <url-pattern>/login.do</url-pattern>
     </servlet-mapping>
     
     <servlet>
@@ -45,7 +45,7 @@
     
     <servlet-mapping>
         <servlet-name>LogoutServlet</servlet-name>
-        <url-pattern>/dologout</url-pattern>
+        <url-pattern>/logout.do</url-pattern>
     </servlet-mapping>
     
     <servlet>
@@ -55,6 +55,6 @@
     
     <servlet-mapping>
         <servlet-name>UserServlet</servlet-name>
-        <url-pattern>/douser</url-pattern>
+        <url-pattern>/user.do</url-pattern>
     </servlet-mapping>
 </web-app>

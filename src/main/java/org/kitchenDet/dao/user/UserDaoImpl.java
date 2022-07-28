@@ -13,13 +13,13 @@ import java.sql.SQLException;
  */
 public class UserDaoImpl implements UserDao {
     @Override
-    public User getLoginUser(Connection connection, String userCode) throws SQLException {
-        String sql = "select * from user where ID=?";
+    public User getLoginUser(Connection connection, String userName) throws SQLException {
+        String sql = "select * from user where username=?";
         PreparedStatement pstm = null;
         ResultSet rs = null;
         User user = null;
         if (connection != null) {
-            Object[] params = {userCode};
+            Object[] params = {userName};
             rs = BaseDao.execute(connection, sql, params, rs, pstm);
             if (rs.next()) {
                 user = new User();

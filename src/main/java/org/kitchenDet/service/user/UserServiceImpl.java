@@ -19,13 +19,13 @@ public class UserServiceImpl implements UserService{
     }
 
     @Override
-    public User login(String userCode, String password) {
+    public User login(String username, String password) {
         Connection connection = null;
         User user = null;
 
         try{
             connection = BaseDao.getConnection();
-            user = userDao.getLoginUser(connection,userCode);
+            user = userDao.getLoginUser(connection,username);
         }catch(SQLException e){
             e.printStackTrace();
         }finally {
@@ -53,7 +53,7 @@ public class UserServiceImpl implements UserService{
 
     @Test
     public void test(){
-        User user = login("10001","123456");
+        User user = login("lzl","123456");
         System.out.println(user.getUsername());
     }
 }

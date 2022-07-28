@@ -22,7 +22,7 @@ public class SysFilter implements Filter {
         HttpServletRequest req = (HttpServletRequest)request;
         HttpServletResponse resp = (HttpServletResponse) response;
         if(req.getSession().getAttribute(Constants.USER_SESSION) == null){
-            resp.sendRedirect(req.getContextPath()+"/error.jsp");
+            resp.sendRedirect(req.getContextPath()+"/error.html");
         }else{
             chain.doFilter(request, response);
         }

@@ -23,7 +23,7 @@ public class LoginServlet extends HttpServlet {
         User loginUser = us.login(userCode,userPassword);
         if(loginUser!=null){
             req.getSession().setAttribute(Constants.USER_SESSION,loginUser);
-            resp.sendRedirect("sys/frame.html");
+            resp.sendRedirect("sys/showVideo.html");
         }else{
             req.setAttribute("error","用户名或密码不正确");
             req.getRequestDispatcher("login.html").forward(req,resp);

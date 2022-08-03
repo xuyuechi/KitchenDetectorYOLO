@@ -18,7 +18,7 @@
 		}
         function dologin(){
             console.log("进入login方法！");
-            $("#result").innerHTML = "";
+            $("#result").html("");
             $.ajax({
                 type:"POST",
                 url:window.location.href+"/login.do",

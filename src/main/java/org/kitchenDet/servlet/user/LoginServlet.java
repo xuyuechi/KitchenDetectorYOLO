@@ -1,5 +1,7 @@
 package org.kitchenDet.servlet.user;
 
+import com.alibaba.fastjson.JSONArray;
+import com.mysql.cj.xdevapi.JsonArray;
 import org.kitchenDet.pojo.User;
 import org.kitchenDet.service.user.UserService;
 import org.kitchenDet.service.user.UserServiceImpl;
@@ -10,6 +12,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Servlet:控制层，调用业务层代码
@@ -21,13 +26,23 @@ public class LoginServlet extends HttpServlet {
         String userCode = req.getParameter("username");
         String userPassword = req.getParameter("password");
         User loginUser = us.login(userCode,userPassword);
+        Map<String,String> result = new HashMap<>();
         if(loginUser!=null){
+            System.out.println("登录成功");
             req.getSession().setAttribute(Constants.USER_SESSION,loginUser);
-            resp.sendRedirect("sys/showVideo.html");
+            result.put("status","true");
+            result.put("url",req.getContextPath()+"/sys/showVideo.html");
         }else{
-            req.setAttribute("error","用户名或密码不正确");
-            req.getRequestDispatcher("login.html").forward(req,resp);
+            System.out.println("登录失败");
+            result.put("status","false");
+            result.put("url","");
         }
+        System.out.println("开始写入json");
+        resp.setContentType("application/json");
+        PrintWriter writer = resp.getWriter();
+        writer.write(JSONArray.toJSONString(result));
+        writer.flush();
+        writer.close();
     }
 
     @Override
